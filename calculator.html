@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#dc3626">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <title>💰 Kalkulačka</title>
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Kalkulačka</h1>
+
+        <div class="input-group">
+            <label for="weight">Váha (g):</label>
+            <input type="number" id="weight" placeholder="Zadej váhu">
+        </div>
+        <div class="buttons">
+            <button onclick="calculate(5)">🤏 +5%</button>
+            <button onclick="calculate(10)">😏 +10%</button>
+            <button onclick="calculate(20)">🔥 +20%</button>
+            <button onclick="calculate(30)">😤 +30%</button>
+            <button onclick="calculate(50)">🐷 +50%</button>
+        </div>
+        <div class="result" id="result">Vyber přirážku pro výpočet ceny</div>
+
+        <div class="shift-section">
+            <h3>📊 Sledování směny</h3>
+            <div class="shift-info">
+                <div class="shift-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Stav směny:</span>
+                        <span class="stat-value" id="shiftStatus">NE</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Celkový výdělek:</span>
+                        <span class="stat-value" id="totalProfit">0.00 Kč</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Počet prodejů:</span>
+                        <span class="stat-value" id="salesCount">0</span>
+                    </div>
+                </div>
+                <div class="shift-buttons">
+                    <button class="shift-control-btn" id="shiftBtn" onclick="toggleShift()">🎯 Začít směnu</button>
+                    <button class="shift-control-btn" onclick="resetShift()">🔄 Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
