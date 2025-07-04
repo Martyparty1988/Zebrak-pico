@@ -14,18 +14,6 @@ let shiftData = JSON.parse(localStorage.getItem('shiftData')) || {
     sales: 0
 };
 
-// Funkce pro zobrazení záložek
-function showTab(tabName) {
-    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-    document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
-    document.getElementById(tabName).classList.add('active');
-
-    if (tabName === 'history') {
-        loadHistory();
-    }
-}
-
 // Funkce pro výpočet
 function calculate(markup) {
     const weight = parseFloat(document.getElementById('weight').value);
@@ -103,7 +91,7 @@ function savePricePerGram() {
 }
 function loadPricePerGram() {
     if (priceStorage.pricePerGram) {
-        document.getElementById('pricePerGram').value = priceStorage.pricePerGram;
+        document.getElementById('pricePerGram').value = pricePerGram;
     }
 }
 function saveToHistory(calculation) {
@@ -135,5 +123,4 @@ function clearHistory() {
 window.addEventListener('load', function() {
     loadPricePerGram();
     updateShiftDisplay();
-    showTab('calculator'); // Výchozí záložka
 });
