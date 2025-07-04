@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#dc3626">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <title>📋 Historie</title>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Historie</h1>
+
+        <div class="history">
+            <h3>📋 Historie výpočtů</h3>
+            <div id="historyList"></div>
+            <button class="clear-btn" onclick="clearHistory()">🗑️ Smazat historii</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>loadHistory();</script>
+</body>
+</html>
