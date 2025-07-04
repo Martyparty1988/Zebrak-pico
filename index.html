@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udělám tě na žebrech</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>💰 Udělám tě na žebrech 💰</h1>
+
+```
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('calc')">Kalkulačka</button>
+        <button class="tab" onclick="showTab('history')">Historie</button>
+        <button class="tab" onclick="showTab('settings')">Nastavení</button>
+    </div>
+    
+    <div id="calc" class="tab-content active">
+        <div class="input-group">
+            <label>Váha (g):</label>
+            <input type="number" id="weight" placeholder="Zadej váhu..." step="0.1">
+        </div>
+        
+        <div class="buttons">
+            <button onclick="calculate(5)">🤏 To tě nebude bolet (+5%)</button>
+            <button onclick="calculate(10)">😏 Lehce ojebat (+10%)</button>
+            <button onclick="calculate(20)">🔥 Konečně lepší dýško (+20%)</button>
+            <button onclick="calculate(30)">😤 Neser se s tím (+30%)</button>
+            <button onclick="calculate(50)">🐷 Na prasáka (+50%)</button>
+        </div>
+        
+        <div class="result" id="result">
+            Vyber přirážku pro výpočet ceny
+        </div>
+
+        <div class="shift-section">
+            <h3>📊 Sledování směny</h3>
+            <div class="shift-info">
+                <div class="shift-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Stav směny:</span>
+                        <span class="stat-value" id="shiftStatus">NE</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Celkový výdělek:</span>
+                        <span class="stat-value" id="totalProfit">0.00 Kč</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Počet prodejů:</span>
+                        <span class="stat-value" id="salesCount">0</span>
+                    </div>
+                </div>
+                <div class="shift-buttons">
+                    <button class="shift-control-btn" id="shiftBtn" onclick="toggleShift()">🎯 Začít směnu</button>
+                    <button class="shift-control-btn" onclick="resetShift()">🔄 Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="history" class="tab-content">
+        <div class="history">
+            <h3>📋 Historie výpočtů</h3>
+            <div id="historyList"></div>
+            <button class="clear-btn" onclick="clearHistory()">🗑️ Smazat historii</button>
+        </div>
+    </div>
+    
+    <div id="settings" class="tab-content">
+        <h3>⚙️ Nastavení</h3>
+        <div class="input-group">
+            <label>Cena za gram (Kč/g):</label>
+            <input type="number" id="pricePerGram" value="15" step="0.1" min="0.1" placeholder="Zadej cenu za gram..." oninput="savePricePerGram()">
+        </div>
+        <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 10px; font-size: 14px;">
+            💡 Cena se automaticky ukládá a používá pro všechny výpočty
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+```
+
+</body>
+</html>
