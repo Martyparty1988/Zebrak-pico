@@ -1,0 +1,394 @@
+- {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+font-family: ‘Arial Black’, Arial, sans-serif;
+background: linear-gradient(135deg, #dc2626, #991b1b, #7f1d1d);
+background-size: 400% 400%;
+animation: gradientShift 8s ease infinite;
+color: white;
+min-height: 100vh;
+padding: 10px;
+position: relative;
+overflow-x: hidden;
+}
+
+body::before {
+content: ‘’;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: radial-gradient(circle at 30% 20%, rgba(239, 68, 68, 0.3) 0%, transparent 50%),
+radial-gradient(circle at 70% 80%, rgba(220, 38, 38, 0.4) 0%, transparent 50%),
+radial-gradient(circle at 50% 50%, rgba(127, 29, 29, 0.2) 0%, transparent 70%);
+z-index: -1;
+}
+
+@keyframes gradientShift {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+.container {
+max-width: 450px;
+margin: 0 auto;
+background: rgba(0,0,0,0.15);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 25px;
+padding: clamp(20px, 5vw, 35px);
+box-shadow: 0 15px 40px rgba(0,0,0,0.4),
+0 5px 15px rgba(0,0,0,0.3),
+inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+h1 {
+text-align: center;
+font-size: clamp(20px, 5vw, 28px);
+margin-bottom: clamp(20px, 5vw, 30px);
+text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+background: linear-gradient(45deg, #fff, #fbbf24, #fff);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: textShine 3s ease-in-out infinite;
+}
+
+@keyframes textShine {
+0%, 100% { filter: brightness(1); }
+50% { filter: brightness(1.2); }
+}
+
+.input-group {
+margin-bottom: clamp(15px, 4vw, 25px);
+}
+
+label {
+display: block;
+margin-bottom: 10px;
+font-weight: bold;
+font-size: clamp(14px, 3.5vw, 16px);
+text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+input {
+width: 100%;
+padding: clamp(12px, 3vw, 18px);
+border: none;
+border-radius: 15px;
+font-size: clamp(16px, 4vw, 20px);
+font-weight: bold;
+background: rgba(255,255,255,0.95);
+color: #333;
+box-shadow: 0 5px 15px rgba(0,0,0,0.2),
+inset 0 2px 5px rgba(0,0,0,0.1);
+transition: all 0.3s ease;
+}
+
+input:focus {
+outline: none;
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(0,0,0,0.3),
+inset 0 2px 5px rgba(0,0,0,0.1),
+0 0 0 3px rgba(255,255,255,0.3);
+}
+
+.buttons {
+display: grid;
+gap: clamp(12px, 3vw, 18px);
+margin: clamp(25px, 5vw, 35px) 0;
+}
+
+button {
+padding: clamp(15px, 4vw, 22px);
+border: none;
+border-radius: 18px;
+font-size: clamp(14px, 3.5vw, 17px);
+font-weight: bold;
+cursor: pointer;
+transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+background: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c);
+background-size: 200% 200%;
+color: white;
+box-shadow: 0 8px 25px rgba(0,0,0,0.3),
+0 3px 10px rgba(220, 38, 38, 0.4),
+inset 0 1px 0 rgba(255,255,255,0.2);
+position: relative;
+overflow: hidden;
+}
+
+button::before {
+content: ‘’;
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+transition: left 0.6s;
+}
+
+button:hover::before {
+left: 100%;
+}
+
+button:hover {
+transform: translateY(-5px) scale(1.02);
+box-shadow: 0 15px 35px rgba(0,0,0,0.4),
+0 5px 15px rgba(220, 38, 38, 0.6),
+inset 0 1px 0 rgba(255,255,255,0.3);
+background-position: 100% 0;
+}
+
+button:active {
+transform: translateY(-2px) scale(0.98);
+transition: all 0.1s;
+}
+
+.result {
+background: rgba(255,255,255,0.1);
+backdrop-filter: blur(5px);
+padding: clamp(18px, 4vw, 25px);
+border-radius: 20px;
+margin: clamp(20px, 4vw, 25px) 0;
+text-align: center;
+font-size: clamp(18px, 4vw, 24px);
+font-weight: bold;
+min-height: clamp(60px, 12vw, 80px);
+display: flex;
+align-items: center;
+justify-content: center;
+border: 1px solid rgba(255,255,255,0.2);
+box-shadow: 0 10px 30px rgba(0,0,0,0.3),
+inset 0 1px 0 rgba(255,255,255,0.1);
+animation: resultPulse 2s ease-in-out infinite;
+}
+
+@keyframes resultPulse {
+0%, 100% { box-shadow: 0 10px 30px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1); }
+50% { box-shadow: 0 15px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2); }
+}
+
+.history {
+margin-top: clamp(20px, 5vw, 30px);
+}
+
+.history h3 {
+margin-bottom: 20px;
+text-align: center;
+font-size: clamp(18px, 4vw, 22px);
+text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.history-item {
+background: rgba(255,255,255,0.1);
+backdrop-filter: blur(5px);
+padding: clamp(12px, 3vw, 18px);
+margin: 12px 0;
+border-radius: 15px;
+font-size: clamp(13px, 3vw, 15px);
+border: 1px solid rgba(255,255,255,0.1);
+transition: all 0.3s ease;
+}
+
+.history-item:hover {
+transform: translateX(5px);
+background: rgba(255,255,255,0.15);
+}
+
+.clear-btn {
+background: linear-gradient(135deg, #7f1d1d, #991b1b, #7f1d1d);
+background-size: 200% 200%;
+margin-top: 20px;
+padding: clamp(12px, 3vw, 18px);
+animation: dangerGlow 3s ease-in-out infinite;
+}
+
+@keyframes dangerGlow {
+0%, 100% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+}
+
+.tabs {
+display: flex;
+margin-bottom: clamp(15px, 4vw, 25px);
+border-radius: 15px;
+overflow: hidden;
+background: rgba(0,0,0,0.2);
+}
+
+.tab {
+flex: 1;
+padding: clamp(12px, 3vw, 18px);
+background: rgba(255,255,255,0.1);
+border: none;
+color: white;
+cursor: pointer;
+font-weight: bold;
+font-size: clamp(12px, 3vw, 15px);
+transition: all 0.3s ease;
+position: relative;
+}
+
+.tab:not(:last-child) {
+border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.tab.active {
+background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.2));
+box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.tab:hover:not(.active) {
+background: rgba(255,255,255,0.2);
+}
+
+.tab-content {
+display: none;
+animation: fadeIn 0.5s ease-in-out;
+}
+
+.tab-content.active {
+display: block;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.shift-section {
+margin-top: 30px;
+padding-top: 25px;
+border-top: 2px solid rgba(255,255,255,0.2);
+}
+
+.shift-section h3 {
+text-align: center;
+font-size: clamp(18px, 4vw, 22px);
+margin-bottom: 20px;
+text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.shift-info {
+background: rgba(255,255,255,0.1);
+backdrop-filter: blur(5px);
+border-radius: 20px;
+padding: 20px;
+border: 1px solid rgba(255,255,255,0.2);
+}
+
+.shift-stats {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin-bottom: 20px;
+}
+
+.stat-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 10px 15px;
+background: rgba(0,0,0,0.2);
+border-radius: 12px;
+border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-label {
+font-size: clamp(13px, 3vw, 15px);
+color: rgba(255,255,255,0.8);
+}
+
+.stat-value {
+font-size: clamp(14px, 3.5vw, 16px);
+font-weight: bold;
+color: #fbbf24;
+}
+
+.shift-buttons {
+display: flex;
+gap: 12px;
+}
+
+.shift-control-btn {
+flex: 1;
+padding: clamp(12px, 3vw, 16px);
+border: none;
+border-radius: 15px;
+font-size: clamp(13px, 3vw, 15px);
+font-weight: bold;
+cursor: pointer;
+transition: all 0.3s ease;
+background: linear-gradient(135deg, #16a34a, #15803d);
+color: white;
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.shift-control-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.shift-active {
+background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+animation: shiftPulse 2s ease-in-out infinite;
+}
+
+@keyframes shiftPulse {
+0%, 100% { box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+50% { box-shadow: 0 8px 25px rgba(220, 38, 38, 0.5); }
+}
+
+@media (max-width: 768px) {
+.container {
+margin: 10px;
+padding: 20px;
+}
+}
+
+@media (max-width: 480px) {
+body {
+padding: 5px;
+}
+
+```
+.container {
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.tabs {
+    flex-direction: row;
+    gap: 0;
+}
+
+.tab {
+    font-size: 12px;
+    padding: 12px 8px;
+}
+
+.buttons {
+    gap: 15px;
+}
+
+button {
+    font-size: 15px;
+    padding: 18px;
+}
+```
+
+}
+
+@media (max-width: 360px) {
+.tab {
+font-size: 11px;
+padding: 10px 6px;
+}
+}
